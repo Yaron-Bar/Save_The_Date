@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="אישור הגעה לחתונה של Yaron & Bar - מסיבת בריכה בקאסה אירועים נתניה."
+    />
+    <title>Yaron & Bar | RSVP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700;800&family=Cormorant+Garamond:wght@600;700&family=Great+Vibes&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page-shell" aria-labelledby="event-title">
+      <div class="ambient ambient-one" aria-hidden="true"></div>
+      <div class="ambient ambient-two" aria-hidden="true"></div>
+      <div class="festival-lights" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+      </div>
+
+      <section class="invitation-card">
+        <div class="gold-corners" aria-hidden="true"></div>
+
+        <header class="hero-copy">
+          <p class="kicker">SAVE THE DATE</p>
+          <h1 id="event-title">Yaron &amp; Bar</h1>
+          <p class="subtitle">ARE GETTING MARRIED</p>
+          <time class="date" datetime="2026-08-28">28.08.26</time>
+        </header>
+
+        <figure class="couple-frame" aria-label="תמונה מאוירת של ירון ובר">
+          <img src="assets/couple-latest.png" alt="ירון ובר באיור חתונה ליד בריכה בשקיעה" />
+        </figure>
+
+        <section class="details-grid" aria-label="פרטי האירוע">
+          <div class="detail-pill">
+            <span aria-hidden="true">📅</span>
+            <p>שישי | מסיבת בריכה</p>
+          </div>
+          <div class="detail-pill">
+            <span aria-hidden="true">👕</span>
+            <p>לבוש קייצי ובגדי ים</p>
+          </div>
+          <div class="detail-pill">
+            <span aria-hidden="true">📍</span>
+            <p>Casa Event נתניה, רחוב הפלדה 4</p>
+          </div>
+          <div class="detail-pill">
+            <span aria-hidden="true">⏰</span>
+            <p>12:00</p>
+          </div>
+        </section>
+
+        <section class="rsvp-panel" aria-labelledby="rsvp-title">
+          <div class="section-heading">
+            <span></span>
+            <h2 id="rsvp-title">אישור הגעה</h2>
+            <span></span>
+          </div>
+
+          <form id="rsvp-form" novalidate>
+            <label for="guest-name">שם מלא</label>
+            <input
+              id="guest-name"
+              name="name"
+              type="text"
+              autocomplete="name"
+              placeholder="השם שלך"
+              required
+            />
+
+            <label for="attending">מגיעים?</label>
+            <select id="attending" name="attending" required>
+              <option value="" selected disabled>בחרו תשובה</option>
+              <option value="כן">כן, מגיעים</option>
+              <option value="לא">לא, לצערנו לא</option>
+            </select>
+
+            <label for="guests">כמות אנשים</label>
+            <input
+              id="guests"
+              name="guests"
+              type="number"
+              inputmode="numeric"
+              min="0"
+              max="20"
+              value="1"
+              required
+            />
+
+            <button type="submit">שלח אישור הגעה</button>
+            <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+          </form>
+        </section>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
