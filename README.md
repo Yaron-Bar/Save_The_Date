@@ -30,9 +30,13 @@ A digital gifts section (Bit/PayBox) is planned to be added closer to the event 
    };
    ```
 
-After setup, every submission is appended (or updated in place if the same phone number submits again) to the `Responses` sheet with these columns:
+After setup, every submission is appended (or updated in place if the same phone number submits again) to the `אישור הגעה` tab with these columns:
 
-`Timestamp | Full Name | Phone Number | Attendance Status | Number of Guests | Gift Message | Created Date`
+`שם מלא | טלפון | מגיע/לא מגיע | כמות | הערות | תאריך אישור הגעה`
+
+### If you edit `google-apps-script.gs` after deploying
+
+Saving the file in the Apps Script editor does **not** update the live Web App URL. You must create a new deployment version: **Deploy -> Manage deployments -> edit (pencil icon) -> Version: New version -> Deploy**. If the URL changes, update `appsScriptUrl` in `script.js`.
 
 ## Configuration
 

@@ -1,17 +1,9 @@
 const CONFIG = {
-  spreadsheetId: "PASTE_SPREADSHEET_ID_HERE",
-  sheetName: "Responses",
+  spreadsheetId: "1d-lLhF6kpKo38Llk2vMvBujbPe-KvtLUcD5dT-Vy8Go",
+  sheetName: "אישור הגעה",
 };
 
-const HEADERS = [
-  "Timestamp",
-  "Full Name",
-  "Phone Number",
-  "Attendance Status",
-  "Number of Guests",
-  "Gift Message",
-  "Created Date",
-];
+const HEADERS = ["שם מלא", "טלפון", "מגיע/לא מגיע", "כמות", "הערות", "תאריך אישור הגעה"];
 
 function setupWeddingRsvpSheet() {
   const ss = SpreadsheetApp.openById(CONFIG.spreadsheetId);
@@ -34,13 +26,12 @@ function doPost(e) {
   const timestamp = payload.submittedAt ? new Date(payload.submittedAt) : now;
 
   upsertRow_(sheet, {
-    timestamp,
     name,
     phone,
     attending,
     guests,
     message,
-    createdDate: now,
+    timestamp,
   });
 
   return ContentService
@@ -49,20 +40,11 @@ function doPost(e) {
 }
 
 function upsertRow_(sheet, row) {
-  const rowValues = [
-    row.timestamp,
-    row.name,
-    row.phone,
-    row.attending,
-    row.guests,
-    row.message,
-    row.createdDate,
-  ];
-
+  const rowValues = [row.name, row.phone, row.attending, row.guests, row.message, row.timestamp];
   const lastRow = sheet.getLastRow();
 
   if (lastRow >= 2) {
-    const phones = sheet.getRange(2, 3, lastRow - 1, 1).getValues();
+    const phones = sheet.getRange(2, 2, lastRow - 1, 1).getValues();
     const normalizedPhone = normalizePhone_(row.phone);
 
     for (let index = 0; index < phones.length; index += 1) {
