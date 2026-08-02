@@ -296,6 +296,42 @@ h1 {
   filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.55));
 }
 
+.countdown {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  max-width: 380px;
+  margin: 4px auto 0;
+  direction: ltr;
+}
+
+.countdown-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px 4px;
+  border: 1px solid rgba(255, 211, 107, 0.28);
+  border-radius: 14px;
+  background: rgba(3, 13, 31, 0.42);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.countdown-number {
+  color: var(--gold);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(1.5rem, 5vw, 2.1rem);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.countdown-label {
+  margin-top: 4px;
+  color: rgba(255, 245, 214, 0.72);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
 .couple-frame {
   position: relative;
   z-index: 1;
@@ -336,7 +372,7 @@ h1 {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 10px;
-  margin: 0 0 24px;
+  margin: 26px 0 0;
 }
 
 .detail-pill {
@@ -520,6 +556,159 @@ button:disabled {
 
 .form-status.error {
   color: #ffd0bd;
+}
+
+textarea {
+  width: 100%;
+  min-height: 78px;
+  padding: 12px 16px;
+  border: 1px solid rgba(255, 211, 107, 0.34);
+  border-radius: 15px;
+  color: #fff8dc;
+  background: rgba(4, 11, 27, 0.72);
+  font: inherit;
+  resize: vertical;
+  outline: none;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+textarea:focus {
+  border-color: rgba(255, 226, 148, 0.95);
+  box-shadow:
+    0 0 0 3px rgba(255, 211, 107, 0.14),
+    0 0 26px rgba(255, 126, 53, 0.2);
+}
+
+#guests-field.is-hidden {
+  display: none;
+}
+
+.actions-panel,
+.schedule-panel {
+  position: relative;
+  z-index: 1;
+  margin-top: 26px;
+}
+
+.action-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 50px;
+  padding: 10px 12px;
+  border: 1px solid rgba(255, 211, 107, 0.4);
+  border-radius: 15px;
+  background: rgba(3, 13, 31, 0.5);
+  color: #fff5d5;
+  font: inherit;
+  font-size: 0.94rem;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.action-btn:hover,
+.action-btn:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(255, 122, 48, 0.24);
+}
+
+.timeline {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.timeline-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border: 1px solid rgba(255, 211, 107, 0.28);
+  border-right: 3px solid var(--gold);
+  border-radius: 14px;
+  background: rgba(3, 13, 31, 0.42);
+}
+
+.timeline-time {
+  flex: 0 0 auto;
+  color: var(--gold);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.timeline-text {
+  color: #fff5d5;
+  font-size: 0.96rem;
+  font-weight: 600;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(3, 6, 16, 0.72);
+  backdrop-filter: blur(6px);
+}
+
+.modal-overlay[hidden] {
+  display: none;
+}
+
+.modal-card {
+  width: min(100%, 380px);
+  padding: 28px 24px;
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  background: linear-gradient(180deg, var(--glass), var(--glass-strong));
+  box-shadow: var(--shadow);
+  text-align: center;
+  animation: cardReveal 320ms ease both;
+}
+
+.modal-emoji {
+  margin: 0 0 6px;
+  font-size: 2.4rem;
+}
+
+.modal-card h2 {
+  margin-bottom: 8px;
+}
+
+.modal-card p {
+  color: rgba(255, 245, 214, 0.86);
+  font-size: 0.98rem;
+}
+
+.modal-card button {
+  margin-top: 14px;
+  min-height: 48px;
+  padding: 0 24px;
+  border: 0;
+  border-radius: 15px;
+  background: linear-gradient(100deg, #fff3a8, #ffd061 34%, #ff8a35 62%, #ffe69a);
+  color: #261102;
+  font: inherit;
+  font-weight: 900;
+  cursor: pointer;
 }
 
 @keyframes cardReveal {

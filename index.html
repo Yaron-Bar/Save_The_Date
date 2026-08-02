@@ -33,11 +33,93 @@
           <h1 id="event-title">Yaron &amp; Bar</h1>
           <p class="subtitle">ARE GETTING MARRIED</p>
           <time class="date" datetime="2026-08-28">28.08.26</time>
+
+          <div class="countdown" id="countdown" aria-label="ספירה לאחור לחתונה">
+            <div class="countdown-cell">
+              <span class="countdown-number" id="cd-days">00</span>
+              <span class="countdown-label">ימים</span>
+            </div>
+            <div class="countdown-cell">
+              <span class="countdown-number" id="cd-hours">00</span>
+              <span class="countdown-label">שעות</span>
+            </div>
+            <div class="countdown-cell">
+              <span class="countdown-number" id="cd-minutes">00</span>
+              <span class="countdown-label">דקות</span>
+            </div>
+            <div class="countdown-cell">
+              <span class="countdown-number" id="cd-seconds">00</span>
+              <span class="countdown-label">שניות</span>
+            </div>
+          </div>
         </header>
 
         <figure class="couple-frame" aria-label="תמונה מאוירת של ירון ובר">
           <img src="couple-latest.png" alt="ירון ובר באיור חתונה ליד בריכה בשקיעה" />
         </figure>
+
+        <section class="rsvp-panel" aria-labelledby="rsvp-title">
+          <div class="section-heading">
+            <span></span>
+            <h2 id="rsvp-title">אישור הגעה</h2>
+            <span></span>
+          </div>
+
+          <form id="rsvp-form" novalidate>
+            <label for="guest-name">שם מלא</label>
+            <input
+              id="guest-name"
+              name="name"
+              type="text"
+              autocomplete="name"
+              placeholder="השם שלך"
+              required
+            />
+
+            <label for="guest-phone">מספר טלפון</label>
+            <input
+              id="guest-phone"
+              name="phone"
+              type="tel"
+              inputmode="tel"
+              autocomplete="tel"
+              placeholder="050-1234567"
+              required
+            />
+
+            <label for="attending">מגיעים?</label>
+            <select id="attending" name="attending" required>
+              <option value="" selected disabled>בחרו תשובה</option>
+              <option value="מגיע/ה">כן, מגיע/ה</option>
+              <option value="לא מגיע/ה">לא, לצערנו לא</option>
+              <option value="טרם החלטתי">עדיין לא החלטתי</option>
+            </select>
+
+            <div id="guests-field">
+              <label for="guests">כמות אנשים</label>
+              <input
+                id="guests"
+                name="guests"
+                type="number"
+                inputmode="numeric"
+                min="1"
+                max="20"
+                value="1"
+              />
+            </div>
+
+            <label for="message">הודעה או ברכה אישית (רשות)</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="3"
+              placeholder="כמה מילים חמות לזוג המאושר... 💛"
+            ></textarea>
+
+            <button type="submit">שלח אישור הגעה</button>
+            <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+          </form>
+        </section>
 
         <section class="details-grid" aria-label="פרטי האירוע">
           <div class="detail-pill">
@@ -58,49 +140,49 @@
           </div>
         </section>
 
-        <section class="rsvp-panel" aria-labelledby="rsvp-title">
+        <section class="actions-panel" aria-label="ניווט והוספה ליומן">
+          <div class="action-row">
+            <a id="waze-link" class="action-btn" target="_blank" rel="noopener noreferrer">
+              <span aria-hidden="true">🚗</span> Waze
+            </a>
+            <a id="maps-link" class="action-btn" target="_blank" rel="noopener noreferrer">
+              <span aria-hidden="true">🗺️</span> Google Maps
+            </a>
+          </div>
+          <div class="action-row">
+            <a id="google-calendar-link" class="action-btn" target="_blank" rel="noopener noreferrer">
+              <span aria-hidden="true">📆</span> הוספה ליומן Google
+            </a>
+            <button id="apple-calendar-btn" type="button" class="action-btn">
+              <span aria-hidden="true">🍎</span> הוספה ליומן Apple
+            </button>
+          </div>
+        </section>
+
+        <section class="schedule-panel" aria-labelledby="schedule-title">
           <div class="section-heading">
             <span></span>
-            <h2 id="rsvp-title">אישור הגעה</h2>
+            <h2 id="schedule-title">לוח זמנים</h2>
             <span></span>
           </div>
-
-          <form id="rsvp-form" novalidate>
-            <label for="guest-name">שם מלא</label>
-            <input
-              id="guest-name"
-              name="name"
-              type="text"
-              autocomplete="name"
-              placeholder="השם שלך"
-              required
-            />
-
-            <label for="attending">מגיעים?</label>
-            <select id="attending" name="attending" required>
-              <option value="" selected disabled>בחרו תשובה</option>
-              <option value="כן">כן, מגיעים</option>
-              <option value="לא">לא, לצערנו לא</option>
-            </select>
-
-            <label for="guests">כמות אנשים</label>
-            <input
-              id="guests"
-              name="guests"
-              type="number"
-              inputmode="numeric"
-              min="0"
-              max="20"
-              value="1"
-              required
-            />
-
-            <button type="submit">שלח אישור הגעה</button>
-            <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
-          </form>
+          <ol class="timeline">
+            <li class="timeline-item">
+              <span class="timeline-time">12:00</span>
+              <span class="timeline-text">מסיבת בריכה מתחילה — בואו לבוש ים!</span>
+            </li>
+          </ol>
         </section>
       </section>
     </main>
+
+    <div id="thank-you-modal" class="modal-overlay" hidden>
+      <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="thank-you-title">
+        <p class="modal-emoji" aria-hidden="true">🎉</p>
+        <h2 id="thank-you-title">תודה!</h2>
+        <p id="thank-you-text">אישור ההגעה שלך התקבל. נתראה בשקיעה 💛</p>
+        <button id="close-modal-btn" type="button">סגירה</button>
+      </div>
+    </div>
 
     <script src="script.js"></script>
   </body>
